@@ -6,3 +6,4 @@ SELECT
      SUM(profit_zar) AS Profit
 FROM retail_sales
 GROUP BY product_category
+ORDER BY Revenue DESC, Profit DESC
