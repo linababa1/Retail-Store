@@ -1,10 +1,10 @@
 /* how does revenue trend look like over the last 12 months? */
 
-CREATE VIEW monthly_sales_trend AS
+CREATE VIEW monthly_sales AS
 SELECT 
-    TO_CHAR(order_date, 'Mon') as month,
+    order_date as month,
     sum(revenue_zar) as total_revenue  
 FROM retail_sales
-GROUP BY TO_CHAR(order_date, 'Mon')
-ORDER BY MIN(order_date);
+GROUP BY order_date
+ORDER BY order_date;
 
