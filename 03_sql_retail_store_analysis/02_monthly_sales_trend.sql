@@ -1,5 +1,6 @@
 /* how does revenue trend look like over the last 12 months? */
 
+CREATE VIEW monthly_sales_trend AS
 SELECT 
     TO_CHAR(order_date, 'Mon') as month,
     sum(revenue_zar) as total_revenue  

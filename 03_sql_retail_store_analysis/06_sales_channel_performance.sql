@@ -1,5 +1,6 @@
 /* Question: Which sales channel performs best? */
 
+
 UPDATE retail_sales
 SET sales_channel = CASE 
     WHEN LOWER(sales_channel) IN ('in store', 'in-store') THEN 'In-store'
@@ -8,6 +9,8 @@ SET sales_channel = CASE
     ELSE sales_channel
 END;
 
+
+CREATE VIEW sales_channel_performance AS
 SELECT 
         COUNT(transaction_id) AS Total_Transactions,
         sales_channel,

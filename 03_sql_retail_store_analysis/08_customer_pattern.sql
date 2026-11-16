@@ -1,5 +1,6 @@
 /* What patterns can you identify among repeat customers? */
 
+CREATE VIEW customer_pattern AS
 WITH order_level AS (
     SELECT
         customer_id,

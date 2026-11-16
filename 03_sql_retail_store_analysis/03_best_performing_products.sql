@@ -1,5 +1,6 @@
 /* Question: Which product categories generate the most revenue and profit? */
 
+CREATE VIEW best_performing_products AS
 SELECT 
      product_category,
      SUM(revenue_zar) AS Revenue,
