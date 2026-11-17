@@ -54,4 +54,11 @@ GROUP BY order_date
 ORDER BY order_date;
 ```
 **Results**
+
 ![Monthly Revenue Trend](./06_Power_BI/monthly_trends.png)
+
+**Key Insights**
+- The business hits its highest revenue in August and October with R154K.
+- November is the lowest performing month of the year
+- In the first Quarter, March and April performed the lowest
+- The store has a healthy baseline, never dropping below R110K
