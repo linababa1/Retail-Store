@@ -54,4 +54,4 @@ GROUP BY order_date
 ORDER BY order_date;
 ```
 **Results**
-![Monthly Revenue Trend]["C:\Analytics Engineer\Data Analyst Projects\Retail Store\06_Power_BI\monthly trends.png"]
+![Monthly Revenue Trend](./06_Power_BI/monthly_trends.png)
