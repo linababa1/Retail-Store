@@ -1,6 +1,13 @@
 /* Question: Which product categories generate the most revenue and profit? */
 
-CREATE VIEW best_performing_products AS
+/* Clean Data */
+UPDATE retail_sales
+SET product_category = 'Beauty & Personal Care'
+WHERE product_category = 'Beauty and Personal Care';
+
+/* Analysis */
+
+CREATE VIEW best_performing_product_categories AS
 SELECT 
      product_category,
      SUM(revenue_zar) AS Revenue,
