@@ -62,3 +62,16 @@ ORDER BY order_date;
 - November is the lowest performing month of the year
 - In the first Quarter, March and April performed the lowest
 - The store has a healthy baseline, never dropping below R110K
+
+### **3. Which product categories generate the most revenue and profit?**
+
+```sql
+SELECT 
+     product_category,
+     SUM(revenue_zar) AS Revenue,
+     SUM(profit_zar) AS Profit
+FROM retail_sales
+GROUP BY product_category
+ORDER BY Revenue DESC, Profit DESC
+```
+**Result**
