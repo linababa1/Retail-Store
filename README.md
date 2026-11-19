@@ -75,3 +75,73 @@ GROUP BY product_category
 ORDER BY Revenue DESC, Profit DESC
 ```
 **Result**
+
+![Best_Performing_Product_Category](./06_Power_BI/Best_Performing_Product_Category.png)
+
+**Key Insights**
+- Home & Kitchen generates the highest revenue and profit
+- Clothing and Electronics are also strong secondary drivers of revenue and profit
+- Groceries generates the lowest revenue and profit compared to the others
+
+**Recommendations**
+- Make sure the stock for Home & Kitchen and Clothing is always available
+- Because Groceries have the lowest revenue and profit margins, the business should reduce grocery inventory to prevent dead stock
+
+## 4. Which individual products perform best and worst?
+```sql
+SELECT 
+    product_name AS Product_Name,
+    SUM(profit_zar) AS Profit
+FROM retail_sales
+GROUP BY product_name
+ORDER BY Profit DESC;
+```
+
+**Results**
+
+| Rank | Product Name | Total Profit (ZAR) |
+|:---:|:---|-------------------:|
+| 1 | Air Fryer | **R 56,538.15** |
+| 2 | Cookware Set | **R 53,469.62** |
+| 3 | Jacket | **R 51,423.88** |
+| 4 | Perfume 50ml | **R 34,362.65** |
+| 5 | Sneakers | **R 33,491.53** |
+| 6 | Headphones | **R 31,154.98** |
+| 7 | Bluetooth Speaker | **R 29,347.34** |
+| 8 | Hoodie | **R 29,131.55** |
+| 9 | Jeans | **R 28,090.89** |
+| 10 | Backpack | **R 27,251.76** |
+| 11 | Bed Linen Set | **R 26,319.12** |
+| 12 | Electric Trimmer | **R 25,041.48** |
+| 13 | Keyboard | **R 22,593.13** |
+| 14 | Dumbbell Pair | **R 21,747.53** |
+| 15 | Power Bank | **R 20,535.81** |
+| 16 | Electric Kettle | **R 18,031.90** |
+| 17 | Yoga Mat | **R 17,926.09** |
+| 18 | Camping Chair | **R 17,443.11** |
+| 19 | Desk Lamp | **R 16,166.76** |
+| 20 | USB-C Charger | **R 14,156.02** |
+| 21 | Wireless Mouse | **R 13,793.81** |
+| 22 | T-Shirt | **R 12,164.63** |
+| 23 | Storage Set | **R 10,412.98** |
+| 24 | Face Moisturiser | **R 9,357.65** |
+| 25 | Sunscreen | **R 8,321.55** |
+| 26 | Water Bottle | **R 7,944.26** |
+| 27 | Body Lotion | **R 7,358.72** |
+| 28 | Olive Oil 500ml | **R 6,330.53** |
+| 29 | Socks Pack | **R 5,329.60** |
+| 30 | Skipping Rope | **R 4,606.02** |
+| 31 | Tea 100 Pack | **R 4,363.27** |
+| 32 | Shampoo 400ml | **R 4,255.42** |
+| 33 | Coffee 250g | **R 3,956.32** |
+| 34 | Cereal 1kg | **R 3,584.75** |
+| 35 | Peanut Butter | **R 2,639.07** |
+| 36 | Rice 2kg | **R 1,803.20** |
+
+**Key Insights**
+- The top two products: Air Fryer and Cookwar Set are both high selling Home & Kitchen items, generating over R100K
+- Groceries such as Rice, Peanut Butter, Cereal, Coffee generate the lowest profit.
+
+**Recomemendation**
+- Ensure the Top 10 products are always well stocked. They are the primary profit engines
+- Create bundle promotions for the low-margin grocery items to drive more traffic
