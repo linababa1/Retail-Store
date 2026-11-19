@@ -161,6 +161,14 @@ LIMIT 5;
 
 ![top_5_cities](06_Power_BI/cities_by_revenue.png)
 
+| Rank | City | Total Revenue (ZAR) |
+|:---:|:---|-------------------:|
+| 1 | **Johannesburg** | R 341,241.69 |
+| 2 | **Cape Town** | R 274,621.18 |
+| 3 | **Durban** | R 187,911.89 |
+| 4 | **Pretoria** | R 175,345.71 |
+| 5 | **Gqeberha** | R 130,986.99 |
+
 **Key Insights**
 - Johannessburg generates the most revenue than any other city
 - The gap between Johannesburg and Gqeberha is significant suggesting that Gqeberha operates in a smaller economic tier.
