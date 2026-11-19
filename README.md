@@ -145,3 +145,16 @@ ORDER BY Profit DESC;
 **Recomemendation**
 - Ensure the Top 10 products are always well stocked. They are the primary profit engines
 - Create bundle promotions for the low-margin grocery items to drive more traffic
+
+## 5. Which top 5 cities generate the most revenue?
+
+```sql
+SELECT 
+    city,
+    SUM(revenue_zar) AS total_revenue
+FROM retail_sales
+GROUP BY city
+ORDER BY total_revenue DESC
+LIMIT 5;
+```
+**Results**
