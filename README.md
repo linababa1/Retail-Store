@@ -158,3 +158,13 @@ ORDER BY total_revenue DESC
 LIMIT 5;
 ```
 **Results**
+
+![top_5_cities](06_Power_BI/cities_by_revenue.png)
+
+**Key Insights**
+- Johannessburg generates the most revenue than any other city
+- The gap between Johannesburg and Gqeberha is significant suggesting that Gqeberha operates in a smaller economic tier.
+
+**Recommendation**
+- Allocate a significant portion of the marketing and advertising budget to Johannesburg to maintain and grow that dominant market share.
+- Gqeberha is the lowest performer on this list. The business should investigate why sales are lower. Is it a lack of localized marketing? Delivery delays? Or simply a smaller customer base? A targeted local promotion could help close the gap
