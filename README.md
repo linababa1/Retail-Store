@@ -41,8 +41,8 @@ FROM retail_sales;
 | **4,183** | **R 1,569,729.84** | **R 680,445.08** |
 
 **Insights**
-The Store generated R680 445 in profit from R1 569 729 Revenue.
-Sold 4183 units and generated R1 569 729 Revenue 
+- The Store generated R680 445 in profit from R1 569 729 Revenue.
+- Sold 4183 units and generated R1 569 729 Revenue 
 
 ### **2. how does revenue trend look like over the last 12 months?**
 ```sql
@@ -226,3 +226,76 @@ ORDER BY Total_Number DESC;
 **Recommendation**
 - Ensure your card payment terminals are fast and reliable.
 - Look into why Mobile Wallets are underperforming.
+
+## 8. What patterns can you identify among repeat customers?
+
+```sql
+WITH order_level AS (
+    SELECT
+        customer_id,
+        order_id,
+        order_date,
+        SUM(revenue_zar) AS order_revenue,
+        SUM(profit_zar) AS order_profit,
+        SUM(quantity) AS order_quantity
+    FROM retail_sales
+    GROUP BY customer_id, order_id, order_date
+),
+
+customer_summary AS (
+    SELECT
+        customer_id,
+        COUNT(DISTINCT order_id) AS total_orders,
+        SUM(order_revenue) AS total_spent,
+        SUM(order_profit) AS total_profit,
+        SUM(order_quantity) AS total_quantity_purchased,
+        ROUND(AVG(order_revenue), 2) AS avg_order_value,
+        MIN(order_date) AS first_order_date,
+        MAX(order_date) AS last_order_date,
+        MAX(order_date) - MIN(order_date) AS customer_lifespan
+    FROM order_level
+    GROUP BY customer_id
+)
+
+SELECT 
+    customer_id,
+    total_orders,
+    total_spent,
+    total_profit,
+    total_quantity_purchased,
+    avg_order_value,
+    first_order_date,
+    last_order_date,
+    customer_lifespan,
+    CASE
+        WHEN total_orders = 1 THEN 'One-time Customer'
+        WHEN total_orders BETWEEN 2 AND 3 THEN 'Occasional Customer'
+        WHEN total_orders BETWEEN 4 AND 6 THEN 'Regular Customer'
+        ELSE 'Frequent Customer'
+    END AS customer_segment
+FROM customer_summary
+WHERE total_orders > 1
+ORDER BY total_spent DESC
+LIMIT 10;
+```
+**Results**
+
+| customer_id | total_orders | total_spent | total_profit | total_quantity_purchased | avg_order_value | first_order_date | last_order_date | customer_lifespan | customer_segment |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- | :--- | :---: | :--- |
+| CUST00584 | 101 | 57561.45 | 25297.94 | 158 | 558.85 | 2025-01-03 | 2025-12-26 | 357 | Frequent Customer |
+| CUST00371 | 83 | 54641.98 | 23465.81 | 121 | 635.37 | 2025-01-04 | 2025-12-25 | 355 | Frequent Customer |
+| CUST00615 | 40 | 24300.54 | 10545.30 | 61 | 592.70 | 2025-01-03 | 2025-12-31 | 362 | Frequent Customer |
+| CUST00616 | 31 | 20997.76 | 8628.65 | 44 | 677.35 | 2025-01-13 | 2025-12-22 | 343 | Frequent Customer |
+| CUST00421 | 29 | 20127.83 | 8481.00 | 44 | 694.06 | 2025-01-02 | 2025-12-13 | 345 | Frequent Customer |
+| CUST00035 | 28 | 19622.26 | 8994.91 | 51 | 676.63 | 2025-01-06 | 2025-12-09 | 337 | Frequent Customer |
+| CUST00014 | 33 | 19449.07 | 8317.38 | 46 | 589.37 | 2025-01-14 | 2025-12-28 | 348 | Frequent Customer |
+| CUST00181 | 15 | 19109.86 | 8106.94 | 32 | 1273.99 | 2025-02-24 | 2025-11-22 | 271 | Frequent Customer |
+| CUST00692 | 23 | 16293.87 | 7063.60 | 33 | 708.43 | 2025-01-17 | 2025-12-30 | 347 | Frequent Customer |
+| CUST00659 | 19 | 15350.16 | 6324.04 | 34 | 807.90 | 2025-02-12 | 2025-12-23 | 314 | Frequent Customer |
+
+**Key Insights**
+- The top two customers (CUST00584 and CUST00371) are extreme outliers. With 101 and 83 orders respectively, they shop almost weekly. Together, they generated over R112,000 in revenue.
+- There are two distinct types of top spenders. CUST00584 buys frequently but has a lower average order value (R558), while CUST00181 bought only 15 times but has the highest average order value (R1,273) among the top 10, indicating a preference for premium, high-ticket items.
+**Recommendation**
+- ffer a "points multiplier" or free shipping on smaller orders to keep them coming back weekly.
+
