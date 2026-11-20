@@ -176,3 +176,46 @@ LIMIT 5;
 **Recommendation**
 - Allocate a significant portion of the marketing and advertising budget to Johannesburg to maintain and grow that dominant market share.
 - Gqeberha is the lowest performer on this list. The business should investigate why sales are lower. Is it a lack of localized marketing? Delivery delays? Or simply a smaller customer base? A targeted local promotion could help close the gap
+
+## 6. Which sales channel performs best?
+
+```sql
+SELECT 
+        COUNT(transaction_id) AS Total_Transactions,
+        sales_channel,
+        SUM(revenue_zar) AS Revenue,
+        SUM(profit_zar) AS Profit
+FROM retail_sales
+GROUP BY sales_channel
+ORDER BY Revenue DESC;
+```
+**Result**
+
+| total_transactions | sales_channel | revenue | profit |
+| :--- | :--- | :--- | :--- |
+| 1164 | In-store | 748786.22 | 322590.89 |
+| 923 | Online | 574752.49 | 251102.78 |
+| 361 | Click & Collect | 246191.13 | 106751.41 |
+
+**Key Insights**
+- In-Store brings the highest revenue and overall profit. It also handles the most transactions (1164).
+- Online is a strong secondary revenue and profit driver with 923 transactions and Click & Collect is significantly smaller with 361 transactions
+
+**Recommendation**
+- Focus marketing and inventort efforts on maintaining the in-Store dominance.
+- Run targeted promotions for Online sales.
+
+## 7. Which payment methods are most popular?
+
+```sql
+SELECT 
+    COUNT(transaction_id) AS Total_Number,
+    payment_method
+FROM retail_sales
+GROUP BY payment_method
+ORDER BY Total_Number DESC;
+```
+
+**Results**
+
+![Payment_Method]()
