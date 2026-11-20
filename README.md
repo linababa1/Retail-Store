@@ -296,6 +296,7 @@ LIMIT 10;
 **Key Insights**
 - The top two customers (CUST00584 and CUST00371) are extreme outliers. With 101 and 83 orders respectively, they shop almost weekly. Together, they generated over R112,000 in revenue.
 - There are two distinct types of top spenders. CUST00584 buys frequently but has a lower average order value (R558), while CUST00181 bought only 15 times but has the highest average order value (R1,273) among the top 10, indicating a preference for premium, high-ticket items.
+  
 **Recommendation**
-- ffer a "points multiplier" or free shipping on smaller orders to keep them coming back weekly.
+- Offer a "points multiplier" or free shipping on smaller orders to keep them coming back weekly.
 
