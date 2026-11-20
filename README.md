@@ -218,4 +218,11 @@ ORDER BY Total_Number DESC;
 
 **Results**
 
-![Payment_Method]()
+![Payment_Method](06_Power_BI/payment_method.png)
+
+**Key Insights**
+- Card account for 1361 transactions, which is more than half of all payments. This show customers prefer using card payments
+
+**Recommendation**
+- Ensure your card payment terminals are fast and reliable.
+- Look into why Mobile Wallets are underperforming.
