@@ -300,3 +300,4 @@ LIMIT 10;
 **Recommendation**
 - Offer a "points multiplier" or free shipping on smaller orders to keep them coming back weekly.
 
+## Conclusion
