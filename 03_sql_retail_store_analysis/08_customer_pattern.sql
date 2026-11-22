@@ -1,4 +1,4 @@
-/* What patterns can you identify among repeat customers? */
+/* Who are the top 10 customers by total spend? */
 
 CREATE VIEW customer_pattern AS
 WITH order_level AS (
@@ -46,7 +46,7 @@ SELECT
     END AS customer_segment
 FROM customer_summary
 WHERE total_orders > 1
-ORDER BY total_spent DESC;
-
+ORDER BY total_spent DESC
+LIMIT 10;
 
 
