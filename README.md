@@ -301,3 +301,8 @@ LIMIT 10;
 - Offer a "points multiplier" or free shipping on smaller orders to keep them coming back weekly.
 
 ## Conclusion
+- The store generated R 1.57 Million in revenue and R 680,000 in profit.
+- Home & Kitchen had the top-selling items, the Air Fryer and Cookware Set, which generated over 100k in combined profit.
+- Johannesburg is the primary market, generating R341,000, while the top four cities (Joburg, Cape Town, Durban, and Pretoria) drive the vast majority of all sales.
+- In-store shopping remains the dominant channel for both revenue and volume.
+- Traditional payment methods still rule, with Card payments accounting for over 55% of all checkout transactions.
